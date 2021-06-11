@@ -117,8 +117,22 @@ const clustering = (function() {
 			
 		var si = setInterval(function() {
 
+			// Terminating condition and convergence
 			if (success >= k) {
-				clearInterval(si);
+				(function() {
+					clearInterval(si);
+
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					drawAxis(range);
+
+					for (i = 0; i < k; ++i) {
+						for (j = 0; j < clusters[i].length; ++j) {
+							drawPoint(clusters[i][j].x, clusters[i][j].y, range, 5, clusterColors[i]);
+						}
+						drawCluster(centroids[i].x, centroids[i].y, range, 140);
+						clusters[i] = [];
+					}	
+				})();
 			} else {
 				success = 0;
 			}
