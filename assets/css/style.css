@@ -1,0 +1,54 @@
+:root {
+	--page-width: 100%;
+	--page-height:  100%;
+	--font-family:  cursive;
+	--font-size:  16px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body, html {
+	width: var(--page-width);
+	height: var(--page-height);
+}
+
+.controls {
+	position: absolute;
+	z-index: 1;
+	right: 50px;
+	top: 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+button#btnStart,
+button#btnReset {
+	padding: 10px 25px;
+	border: none;
+	color: white;
+	font-size: 18px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bolder;
+}
+
+button#btnStart {
+	background: #2ed56f;
+}
+
+button#btnReset {
+	background: #666666;
+}
+
+canvas {
+	background: rgb(25, 23, 144);
+	position: relative;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
